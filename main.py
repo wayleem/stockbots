@@ -17,6 +17,10 @@ def main():
 
     # Fetch data
     data = fetch_data(args.ticker, args.start_date, args.end_date)
+    
+    if data.empty:
+        print(f"Unable to fetch data for {args.ticker}. Please try again later or with a different ticker.")
+        return
 
     # Initialize strategies
     strategies = [
